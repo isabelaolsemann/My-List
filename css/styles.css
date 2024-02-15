@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #01061f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    z-index: 9999;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.329);
+    border-radius: 30px;
+    width: 350px;
+    height: auto;
+    padding: 30px;
+}
+
+header h1 {
+    background: linear-gradient(to right, #142ca8,  #01061f); /* Substitua as cores de exemplo (#ff0000 e #0000ff) pelas cores desejadas */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 2.5rem;
+}
+
+button {
+    background-color: #01061f;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #fff;
+}
+
+button:hover > i {
+    color: #01061f;
+    background-color: #fff;
+}
+
+button i {
+    color: #01061f;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.fa-solid, .fa-plus, .fa-regular {
+    color: #fff;
+}
+
+#add-item {
+    width: 220px;
+    margin-right: 4px;
+}
+
+.form-todo, .tools {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    font-family: Helvetica, sans-serif;
+}
+
+#filter-select, #search-items, #add-item, #edit-input {
+    background-color: #01061f;
+    color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    height: 35px;
+    padding: 8px;
+}
+
+#filter-select {
+    width: 70px;
+}
+
+#search-items {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    color: aliceblue;
+}
+
+/* Edit Form */
+
+.hide {
+    display: none;
+}
+
+#edit-form {
+    margin: 20px 10px;
+}
+
+#edit-input {
+    width: 170px;
+    padding: 8px;
+    height: auto;
+}
+
+#edit-form p{
+    font-family: 'Protest Riot', sans-serif;
+    margin-bottom: 7px;
+    font-size: 1rem;
+    background: linear-gradient(to right, #132686,  #01061f); /* Substitua as cores de exemplo (#ff0000 e #0000ff) pelas cores desejadas */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+}
+
+#btn-cancel {
+    width: 60px;
+    background-color: #01061f;
+    color: aliceblue;
+    padding: 8px;
+}
+
+#btn-cancel:hover {
+    width: 60px;
+    background-color: aliceblue;
+    color: #01061f;
+    padding: 8px;
+}
+
+
+/* result */
+.list {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    background-color: #01061f;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 0.8rem;
+    font-family: Helvetica, sans-serif;
+}
+
+.list-right {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    align-items: center;
+}
+
+.btn-check-list, .btn-edit-list, .btn-remove-list {
+    background-color: transparent;
+    background: transparent;
+}
+
+.btn-check-list{
+    background-color: transparent;
+    background: transparent;
+    margin-right: 7px;
+}
+
+
+.list-left {
+    margin-left: 0;
+}
+
+.done p {
+    text-decoration: line-through;
+}
+
+.done {
+    background-color: #01061fb6;
+}
+
+/* Resposive */
+@media screen and (max-width: 500px) {
+    
+    *:not(h1) {
+        font-size: 11px;
+    }
+    
+    .content {
+        width: 280px;
+    }
+
+    #search-items {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    #filter-select {
+        width: 60px;
+        padding: 0;
+    }
+
+    #edit-input {
+        width: 110px;
+        margin-bottom: 10px;
+    }
+
+    #add-item {
+        width: 160px;
+        margin-bottom: 5px;
+    }
+
+    #edit-form p {
+        font-size: 14px;
+    }
+    #btn-cancel {
+        width: 52px;
+    }
+};
