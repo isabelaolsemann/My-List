@@ -1,3 +1,4 @@
+/* Gereral */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     z-index: 9999;
+    overflow: hidden;
 }
 
 #bg {
@@ -26,11 +28,13 @@ body {
 .content {
     background-color: rgba(255, 255, 255, 0.329);
     border-radius: 30px;
-    width: 350px;
+    width: 360px;
     height: auto;
     padding: 30px;
+    margin-bottom: 10px;
 }
 
+/* Header */
 header h1 {
     background: linear-gradient(to right, #142ca8,  #01061f); /* Substitua as cores de exemplo (#ff0000 e #0000ff) pelas cores desejadas */
     -webkit-background-clip: text; 
@@ -43,6 +47,7 @@ header h1 {
     font-size: 2.5rem;
 }
 
+/* Buttons */
 button {
     background-color: #01061f;
     height: 30px;
@@ -72,10 +77,11 @@ button i {
 }
 
 #add-item {
-    width: 220px;
+    width: 240px;
     margin-right: 4px;
 }
 
+/* To do List */
 .form-todo, .tools {
     display: flex;
     justify-content: space-between;
@@ -91,6 +97,13 @@ button i {
     text-align: center;
     height: 35px;
     padding: 8px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    box-shadow: 0 0 0 30px #01061f inset;
 }
 
 #filter-select {
@@ -148,9 +161,43 @@ button i {
 
 
 /* result */
+#result-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Scrollbar result*/
+#result-list::-webkit-scrollbar {
+    width: 10px; 
+}
+
+#result-list::-webkit-scrollbar-track {
+    background: transparent; /* background scroll */
+}
+
+#result-list::-webkit-scrollbar-thumb {
+    background: #888; /* scroll */
+    border-radius: 10px; 
+}
+
+#result-list::-webkit-scrollbar-thumb:hover {
+    background: #fff; 
+}
+
+#result-list::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+p {
+    max-width: 150px; 
+    word-wrap: break-word;
+    text-align: justify;
+}
+
 .list {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 10px;
     background-color: #01061f;
     padding: 10px;
@@ -178,7 +225,6 @@ button i {
     margin-right: 7px;
 }
 
-
 .list-left {
     margin-left: 0;
 }
@@ -191,6 +237,24 @@ button i {
     background-color: #01061fb6;
 }
 
+/* footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 360px;
+    gap: 0.5rem;
+}
+
+footer .fa-brands,
+footer .fa-envelope {
+    color: #fff;
+    font-size: 18px;
+    margin: 10px;
+}
+
+
 /* Resposive */
 @media screen and (max-width: 500px) {
     
@@ -202,30 +266,51 @@ button i {
         width: 280px;
     }
 
+    .form-todo, .tools, #edit-form {
+        margin: 0;
+    }
+
+    .list {
+        margin: 10px 0;
+    }
+
     #search-items {
-        width: 100px;
-        margin-bottom: 20px;
+        width: 110px;
+        margin-left: 5px;
     }
 
     #filter-select {
-        width: 60px;
+        width: 65px;
         padding: 0;
     }
 
     #edit-input {
-        width: 110px;
+        width: 120px;
         margin-bottom: 10px;
     }
 
     #add-item {
-        width: 160px;
+        width: 180px;
         margin-bottom: 5px;
     }
 
     #edit-form p {
         font-size: 14px;
     }
+
     #btn-cancel {
-        width: 52px;
+        width: 62px;
     }
-};
+
+    p {
+        max-width: 110px; 
+        word-wrap: break-word;
+    }
+
+    .btn-check-list, 
+    .btn-edit-list, 
+    .btn-remove-list {
+        height: 20px;
+        width: 20px;
+    }
+}
