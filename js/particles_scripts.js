@@ -113,18 +113,23 @@ particlesJS("bg", {
     "retina_detect": true
   });
   
-  
-  /* ---- stats.js config ---- */
-  
-  var count_particles, stats, update;
-  stats = new Stats;
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.left = '0px';
-  stats.domElement.style.top = '0px';
-  document.body.appendChild(stats.domElement);
-  update = function() {
-    stats.begin();
-    stats.end();
-    requestAnimationFrame(update);
-  };
+/* ---- stats.js config ---- */
+
+var stats = new Stats();
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+document.body.appendChild(stats.domElement);
+
+var count_particles = document.querySelector('.js-count-particles');
+
+function update() {
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
   requestAnimationFrame(update);
+}
+
+requestAnimationFrame(update);

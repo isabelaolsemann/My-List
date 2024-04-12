@@ -145,59 +145,8 @@ const filterList = (filterValue) => {
 
 };
 
-// Local Storage 
-const getSaveListLocalStorage = () => {
-    const lists = JSON.parse(localStorage.getItem("lists")) || [];
-    return lists;
-}
 
-const loadLists = () => {
-    const lists = getSaveListLocalStorage();
-
-    lists.forEach((list) => {
-        saveNewNote(list.text, list.done, 0);
-    })
-}
-
-const saveListLocalStorage = (list) => {
-    // save all list in the LS
-    const lists = getSaveListLocalStorage();
-
-    // add a new item in the array
-    lists.push(list);
-
-    // save list 
-    localStorage.setItem("lists", JSON.stringify(lists));
-}
-
-
-const removeListLocalStorage = (listText) => {
-    const lists = getSaveListLocalStorage();
-    // Persista apenas os todos ok
-    const filteredItems = lists.filter((list) => list.text !== listText);
-    localStorage.setItem("lists", JSON.stringify(filteredItems));
-}
-
-const updateTodoStatusLocalStorage = (listText) => {
-    const lists = getSaveListLocalStorage();
-    lists.map((list) => 
-        list.text === listText ? (list.done = !list.done) : null
-    );
-    localStorage.setItem("lists", JSON.stringify(lists));
-}
-
-const updateLocalStorage = (listOldText, listNewText) => {
-    const lists = getSaveListLocalStorage();
-
-    lists.map((list) => 
-        list.text === listOldText ? (list.text = listNewText) : null
-    );
-
-    localStorage.setItem("lists", JSON.stringify(lists));
-}
-
-// Event
-
+// Evento 
 formToDo.addEventListener("submit", (e) => {
     e.preventDefault();
     // salve value
@@ -287,6 +236,55 @@ filterButton.addEventListener("change", (e) => {
 
 });
 
+// Local Storage 
+const getSaveListLocalStorage = () => {
+    const lists = JSON.parse(localStorage.getItem("lists")) || [];
+    return lists;
+}
 
-// Init
+const loadLists = () => {
+    const lists = getSaveListLocalStorage();
+
+    lists.forEach((list) => {
+        saveNewNote(list.text, list.done, 0);
+    })
+}
+
+const saveListLocalStorage = (list) => {
+    // save all list in the LS
+    const lists = getSaveListLocalStorage();
+
+    // add a new item in the array
+    lists.push(list);
+
+    // save list 
+    localStorage.setItem("lists", JSON.stringify(lists));
+}
+
+
+const removeListLocalStorage = (listText) => {
+    const lists = getSaveListLocalStorage();
+    // Persista apenas os todos ok
+    const filteredItems = lists.filter((list) => list.text !== listText);
+    localStorage.setItem("lists", JSON.stringify(filteredItems));
+}
+
+const updateTodoStatusLocalStorage = (listText) => {
+    const lists = getSaveListLocalStorage();
+    lists.map((list) => 
+        list.text === listText ? (list.done = !list.done) : null
+    );
+    localStorage.setItem("lists", JSON.stringify(lists));
+}
+
+const updateLocalStorage = (listOldText, listNewText) => {
+    const lists = getSaveListLocalStorage();
+
+    lists.map((list) => 
+        list.text === listOldText ? (list.text = listNewText) : null
+    );
+
+    localStorage.setItem("lists", JSON.stringify(lists));
+}
+
 loadLists();
